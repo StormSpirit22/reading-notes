@@ -65,3 +65,11 @@ type serverResponse struct {
 ```
 
 因此无论采用何种语言，只要遵循同样的json结构，以同样的流程就可以和Go语言编写的RPC服务进行通信。这样我们就实现了跨语言的RPC。
+
+
+
+## 4.3.1 客户端RPC的实现原理
+
+一些铺垫，主要解释了 RPC client.Dial 的原理，说明了`client.send`方法调用是线程安全的，因此**可以从多个Goroutine同时向同一个RPC链接发送调用指令**。
+
+## 4.3.2 基于RPC实现Watch功能
